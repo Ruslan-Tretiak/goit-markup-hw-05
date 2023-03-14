@@ -16,6 +16,7 @@
     --potfolio-btn-focus-back:#404BBF;
     --potfolio-btn-color:#4D5AE5;
     --portfoli-staff-card:#E7E9FC;
+    --transition-duration:250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 h1,
@@ -132,6 +133,7 @@ body {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--title-color);
+    transition: color var(--transition-duration);
 }
 .menu-link:hover,
 .menu-link:focus {
@@ -146,10 +148,12 @@ body {
     display: flex;
     padding-top: 24px;
     padding-bottom: 24px;
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .menu {
     display: flex;
     gap: 40px;
+    
 }
 
 /* ==========================ADDRESS========================*/
@@ -168,6 +172,7 @@ body {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--text-color);
+    transition: color var(--transition-duration);
 }
 .address-item:not(:last-child) { 
     margin-right: 40px;
@@ -184,17 +189,6 @@ body {
 
 /* ==========================HERO========================*/
 
-.overlay {
-    min-width: 1440px;
-    height: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: linear-gradient(rgba(46, 47, 66, 0.7),rgba(46, 47, 66, 0.7)),
-    url(../images/hero-img.jpeg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
 .hero {
     background-color: var(--background-hero);
     max-width: 1440px;
@@ -202,6 +196,11 @@ body {
     margin: 0 auto;
     padding-bottom: 188px;
     padding-top: 188px;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url(../images/hero-img.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
 }
 .hero-text {
@@ -223,6 +222,8 @@ body {
     width: 169px;
     height: 56px;
     border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color var(--transition-duration);
 
 }
 .hero-btn:hover,
@@ -241,25 +242,22 @@ body {
 .about {
     padding-top: 120px;
 }
-.about-svg {
 
-}
 .about-cards {
     display: flex;
     justify-content: center;
-}
-.about-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 264px;
-    height: 112px;
     background: #F4F4FD;
     border-radius: 4px;
     margin-bottom: 8px;
     padding-top: 24px;
     padding-bottom: 24px;
 }
+
+.about-box {
+    width: 64px;
+    height: 64px;
+}
+
 /* ==========================/ABOUT========================*/
 
 
@@ -324,11 +322,11 @@ body {
 }
 .team-svg {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 8px;
-    padding-right: 16px;
-    padding-left: 16px;
+    gap: 24px;
 }
+
 
 .team-svg-box {
     display:flex;
@@ -338,9 +336,11 @@ body {
     height: 40px;
     border-radius: 50%;
     background-color: var(--link-color);
+    transition: background-color var(--transition-duration);
 }
-.social-box {
-
+.social-box :hover,
+.social-box :focus {
+    background-color: #404BBF;
 }
 
 /* =========================/TEAM=========================*/
@@ -353,34 +353,32 @@ body {
     line-height: 1.11;
     text-align: center;
     letter-spacing: 0.02em;
-    text-transform: capitalize;
     color: var(--title-color);
     margin-bottom: 72px;
 }
 .customers-logo-box {
     display: flex;
     justify-content: space-between;
-    /* margin-right: 141px;
-    margin-left: 141px; */
     gap: 24px;
-
-}
-.customers-section {
-
+    
 }
 .customers-block{
     display: flex;
     justify-content: center;
     align-content: center;
-}
-.customers-box {
-    display:flex;
-    justify-content: center;
     align-items: center;
     min-width: 168px;
     min-height: 88px;
     border: 1px solid #8E8F99;
     border-radius: 4px;
+    fill: #8E8F99;
+    transition: fill var(--transition-duration),
+        border-color var(--transition-duration);
+}
+.customers-box :hover,
+.customers-box :focus {
+    fill:  var(--hover-focus-btn);
+    border-color:var(--hover-focus-btn);
 }
 /* =========================/CUSTOMERS=========================*/
 
@@ -426,7 +424,6 @@ body {
     letter-spacing: 0.02em;
     color: var(--acent-color);
     margin-bottom: 16px;
-
 }
 .footer-logo-block {
     display: flex;
@@ -442,27 +439,143 @@ body {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
 }
+.footer-logo :hover,
+.footer-logo :focus {
+    background-color: #31D0AA;
+}
 .footer-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: background-color var(--transition-duration);
 }
 
 
 /* =========================/FOOTER=========================*/
+/* =========================MODAL WINDOW=========================*/
+.backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(46, 47, 66, 0.4);
+    transition: opacity var(--transition-duration), 
+    visibility var(--transition-duration);
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.modal-window {
+    position: absolute;
+    width: 408px;
+    height: 576px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background: #E7E9FC;
+    transition: background-color var(--transition-duration);
+
+}
+
+.modal-window :hover,
+.modal-window :focus {
+    background-color: #404BBF;
+    border-color: 4px;
+
+}
+.modal-window :hover .close-modal,
+.modal-window :focus .close-modal {
+    fill: var(--acent-color);
+}
+/* =========================/MODAL WINDOW=========================*/
 
 /* =========================PORTFOLIO-NAV=========================*/
+
+.overlay-text {
+    display: block;
+}
 .portfolio-nav {
     padding-top: 96px;
     padding-bottom: 120px;
 }
-.portfolio-img-bloc {
+.portfolio-link {
     display: block;
-    min-width: -100%;
-    height: auto;   
 }
-.portfolio-text-bloc {
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 72px;
+    row-gap: 48px;
+    column-gap: 24px;
+}
+.cards:hover,
+.cards:focus {
+    box-shadow: 
+    0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.cards :hover .overlay,
+.cards :focus .overlay {
+    transform: translate(0, 0);
+}
+.cards {
+    transition:
+        box-shadow var(--transition-duration),
+        transform var(--transition-duration);
+}
+.portfolio-img-block {
+    display: block;
+    min-width: 100%;
+    height: auto;
+}
+.overlay-block {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+
+}
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    transform: translate(0, 100%);
+    transition: transform var(--transition-duration);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--backgorund-team);
+    background-color: var(--link-color);
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+
+.portfolio-text-block {
     padding-top: 32px;
     padding-bottom: 32px;
     padding-left: 16px;
@@ -470,43 +583,10 @@ body {
     border: 1px solid var(--footer-text);
     border-top: none;
 }
-.port-btn:hover,
-.port-btn:focus {
-    background-color: var(--potfolio-btn-focus-back);
-    color: var(--acent-color);
-    border-color: transparent;
-}
-.port-btn {
-    background-color: var(--backgorund-team);
-    color:var(--potfolio-btn-color);
-    min-width: 79px;
-    height: 48px;
-    border: 1px solid var(--footer-text);
-    border-radius: 4px;
-    padding-top: 12px;
-    padding-right: 24px;
-    padding-bottom: 12px;
-    padding-left: 24px;
-}
-.btn-section {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-}
+
+
 .page-header {
     border-bottom: 1px solid var(--footer-text);
-}
-
-.card {
-
-}
-.card-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 72px;
-    row-gap: 48px;
-    column-gap:24px ;
 }
 
 .about-title-port {
@@ -516,7 +596,6 @@ body {
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: 0.02em;
-    
 }
 .about-text-port {
     color:var(--text-color);
@@ -525,6 +604,36 @@ body {
     line-height: 1.5;
     letter-spacing: 0.02em;
     margin-top: 8px;
-
+}
+.port-btn {
+    background-color: var(--backgorund-team);
+    color: var(--potfolio-btn-color);
+    min-width: 79px;
+    height: 48px;
+    border: 1px solid var(--footer-text);
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-right: 24px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+}
+.port-btn:hover,
+.port-btn:focus {
+    background-color: var(--potfolio-btn-focus-back);
+    color: var(--acent-color);
+    border-color: transparent;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+.btn-section {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+.btn-component {
+    transition: 
+    box-shadow var(--transition-duration),
+    color var(--transition-duration), 
+    border-color var(--transition-duration),
+    background-color var(--transition-duration);
 }
 /* =========================/PORTFOLIO-NAV=========================*/
