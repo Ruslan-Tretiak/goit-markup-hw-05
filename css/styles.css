@@ -450,6 +450,11 @@ body {
 
 /* =========================/FOOTER=========================*/
 /* =========================MODAL WINDOW=========================*/
+.is-hidden.backdrop {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
 .backdrop {
     position: fixed;
     left: 0;
@@ -461,11 +466,7 @@ body {
     transition: opacity var(--transition-duration), 
     visibility var(--transition-duration);
 }
-.is-hidden.backdrop {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-}
+
 .modal-window {
     position: absolute;
     width: 408px;
