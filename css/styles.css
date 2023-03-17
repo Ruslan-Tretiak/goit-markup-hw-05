@@ -288,7 +288,7 @@ body {
     height: 64px;
 }
 .about-block {
-    width: calc((100%-72)/4);
+    width: calc((100%-72px)/4px);
 }
 
 /* ==========================/ABOUT========================*/
