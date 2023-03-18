@@ -478,6 +478,7 @@ body {
 }
 .footer-social-box {
     transition: background-color var(--transition-duration);
+    color: #ff0000;
 }
 
 
@@ -544,7 +545,7 @@ body {
 .portfolio::after {
     display: block;
     content: "";
-    width: 74px;
+    width: 68px;
     height: 4px;
     background-size: auto;
     background-color: #404BBF;
