@@ -371,8 +371,8 @@ body {
     background-color: var(--link-color);
     transition: background-color var(--transition-duration);
 }
-.social-box:hover,
-.social-box:focus {
+.team-svg-box:hover,
+.team-svg-box:focus {
     background-color: #404BBF;
 }
 
@@ -408,8 +408,8 @@ body {
     transition: fill var(--transition-duration),
         border-color var(--transition-duration);
 }
-.customers-box:hover,
-.customers-box:focus {
+.customers-block:hover,
+.customers-block:focus {
     fill:  var(--hover-focus-btn);
     border-color:var(--hover-focus-btn);
 }
@@ -472,11 +472,11 @@ body {
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.1);
 }
-.footer-logo:hover,
-.footer-logo:focus {
+.footer-social-box:hover,
+.footer-social-box:focus {
     background-color: #31D0AA;
 }
-.footer-logo {
+.footer-social-box {
     transition: background-color var(--transition-duration);
 }
 
@@ -530,13 +530,12 @@ body {
 
 }
 
-.modal-window:hover,
-.modal-window:focus {
+.modal-close-btn:hover,
+.modal-close-btn:focus {
     background-color: #404BBF;
-
 }
-.modal-window:hover .close-modal,
-.modal-window:focus .close-modal {
+.modal-close-btn:hover .close-modal,
+.modal-close-btn:focus .close-modal {
     fill: var(--acent-color);
 }
 /* =========================/MODAL-WINDOW=========================*/
@@ -592,8 +591,8 @@ body {
     0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 2px 1px rgba(46, 47, 66, 0.08);
 }
-.cards :hover .overlay,
-.cards :focus .overlay {
+.cards:hover .overlay,
+.cards:focus .overlay {
     transform: translate(0, 0);
 }
 .cards {
