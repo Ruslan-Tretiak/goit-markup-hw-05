@@ -527,7 +527,7 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     background: #E7E9FC;
-    transition: background-color var(--transition-duration);
+    transition: background-color var(--transition-duration), fill var(--transition-duration);
 
 }
 
@@ -616,7 +616,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    overflow-y: scroll;
     transform: translate(0, 100%);
     transition: transform var(--transition-duration);
     font-weight: 400;
@@ -673,6 +672,7 @@ body {
     padding-right: 24px;
     padding-bottom: 12px;
     padding-left: 24px;
+    transition: box-shadow var(--transition-duration);
 }
 .port-btn:hover,
 .port-btn:focus {
